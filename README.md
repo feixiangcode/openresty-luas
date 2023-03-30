@@ -3,6 +3,7 @@ luas
 1.介绍
 ---
 用lua实现的基于openresty的简单的WEB API框架[其实不算一个框架，只是把多个开源的框架按需合一块便于小项目方便的使用]。(我们实际项目目前都是比较简单的接口,就需要按照不同项目把一些并发高的接口移植到openresty上,大多接口还是使用原来的PHP,所以项目是PHP和lua混编的项目,于是就有了luas)
+
 2.安装
 ---
 当然了,首先安装openresty,这个就不解释了<br>
@@ -67,8 +68,8 @@ server {
 >>>>demo/controller/RedisController.lua --项目测试redis<br>
 >>>>demo/components/hello.lua --项目测试组件<br>
 
-####注意
-#####文件夹名称禁止使用. 它会影响引入的路径
-#####nginx启动的时候重写require,项目里面请使用include，必须设置APP_NAME是lua中的项目的文件夹名称,这样才能引入的时候像PHP的项目一样直接include
-#####原来的PHP项目使用的是YII，所以结构上跟YII类似。而且放在了access阶段，如果lua没有实现，就直接执行PHP阶段。实现LUA PHP混编的目的
-#####项目的路由是跟YII类似的。如果路由无法满足需求，在main.lua里面重写，include自有的route
+#### 注意
+##### 文件夹名称禁止使用. 它会影响引入的路径
+##### nginx启动的时候重写require,项目里面请使用include，必须设置APP_NAME是lua中的项目的文件夹名称,这样才能引入的时候像PHP的项目一样直接include
+##### 原来的PHP项目使用的是YII，所以结构上跟YII类似。而且放在了access阶段，如果lua没有实现，就直接执行PHP阶段。实现LUA PHP混编的目的
+##### 项目的路由是跟YII类似的。如果路由无法满足需求，在main.lua里面重写，include自有的route
